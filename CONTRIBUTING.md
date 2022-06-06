@@ -1,63 +1,62 @@
 # Contributing
 
-## Technologies
+### **Table of Contents**
 
-- NodeJS < 14
-- Firebase
+- [Getting Started](#getting-started)
+- [How to Contribute](#how-to-contribute)
+- [Standards and Guidelines](#standards-and-guidelines)
+  - [Theme Guidelines](#theme-guidelines)
+  - [Language Guidelines](#language-guidelines)
+  - [Quote Guidelines](#quote-guidelines)
+- [Questions](#questions)
 
-## Prerequisite - Firebase Setup
+## Getting Started
 
-1. [Create a new Firebase project.](https://console.firebase.google.com/u/0/)
+When contributing to Monkeytype, it's good to know our best practices, tips, and tricks. First, Monkeytype is written in ~~JavaScript~~ TypeScript, CSS, and HTML (in order of language usage within the project); thus, we assume you are comfortable in these languages or have basic knowledge of them. Our backend is in NodeJS and we use MongoDB to store our user data. Firebase is used for authentication. Furthermore, we use Prettier to format our code.
 
-   - The project name doesn't really matter, but just name it `monkeytype`.
-   - Google Analytics is not necessary.
+## How to Contribute
 
-1. [Install the Firebase CLI](https://firebase.google.com/docs/cli)
-1. Run `firebase login` on your terminal to log in to the same google account as you just used to create the project.
-1. Git clone this project.
-1. Duplicate `.firebaserc_example`, rename the new file to `.firebaserc` and change the project name of default to the firebase project id you just created.
+We have two separate contribution guides based on what you're looking to contribute. If you're simply looking to help us augment our language or quotes data, please refer to [CONTRIBUTING_BASIC.md](./CONTRIBUTING_BASIC.md). This guide will go over how to do so easily, and without the need to set up a local development server.
 
-   - If `.firebaserc_example` does not exist after cloning, create your own with:
+If you're looking to make deeper code changes that affect functionality, or will require screenshots of the changes, please refer to [CONTRIBUTING_ADVANCED.md](./CONTRIBUTING_ADVANCED.md).
 
-   ```.firebaserc
-    {
-        "projects": {
-            "default": "your-firebase-project-id"
-        }
-    }
-   ```
+## Standards and Guidelines
 
-   - Run `firebase projects:list` to find your firebase project id.
+Below are a set of general guidelines for different types of changes.
 
-1. Generate a Firebase Admin private key
+### Theme Guidelines
 
-   - In your Firebase console, go to Project Settings > Service Accounts
-   - Click "Generate New Private Key"
-   - Save as `serviceAccountKey.json` in the `functions/` directory
+<!-- TODO: add screenshots to provide examples for dos and don'ts -->
 
-1. Enable Firebase Authentication
+Before submitting a theme make sure...
 
-   - In the Firebase console, go to Authentication
-   - Click on `Email/Password`, enable it and save
-   - Click on `Google`, add a support email and save
+- your theme is unique and isn't visually similar to any we already have.
+- the text color is either black or white (or very close to these colors)
+- your theme has been added to the `_list` file and the `textColor` property is the theme's main color
+- your theme is clear and readable with both `flip test colors` and `colorful mode` enabled and disabled
 
-1. Enable Firebase Firestore
+(If you want to contribute themes but don't know how, check [THEMES.md](./THEMES.md))
 
-   - In the Firebase console, go to Cloud Firestore
-   - Create database
-   - Start in test mode
-   - Select default location and enable
+### Language Guidelines
 
-## Building and Running
+- Do not include swear words
+- Ensure that your contribution meets JSON standards (no trailing comma at the end of a list)
+- Be sure to add your language to the `_list` and `_groups` files
+- Make sure the number of words in the file corresponds to the file name (for example: `languageName.json` is 200 words, `languageName_1k.json` is 1000 words, and so on)
 
-1. Run `npm install` in the project root directory to install dependencies.
-1. Run `npm run start:dev` to start a local dev server on port 5000. It will watch for changes and rebuild when you edit files in `src/` or `public/`. Use ctrl+c to stop it.
-   - Run `firebase use <your-project-id>` if you run into any errors for this.
+(If you want to contribute languages but don't know how, check [LANGUAGES.md](./LANGUAGES.md))
 
-## Standards and Conventions
+### Quote Guidelines
 
-1. Code style is enforced by [Prettier](https://prettier.io/docs/en/install.html), which is automatically ran every time you `git commit` (if you've followed the above instructions properly).
+- Do not include content that contains any libelous or otherwise unlawful, abusive or obscene text.
+- Ensure that your contribution meets JSON standards (no trailing comma at the end of a list)
+- Verify quotes added aren't duplicates of any already present
+- Verify the `length` property is correct (length of the text in characters)
+- Verify the `id` property is incremented correctly
+- Please do not add extremely short quotes (less than 60 characters)
+
+(If you want to contribute quotes but don't know how, check [QUOTES.md](./QUOTES.md))
 
 ## Questions
 
-If you run into any problems, let me know on [GitHub](https://github.com/Miodec) or [Discord](https://discord.gg/monkeytype) in the `#development` channel.
+If you have any questions, comments, concerns, or problems let me know on [GitHub](https://github.com/Miodec), [Discord](https://discord.gg/monkeytype) in the `#development` channel, or ask a question on Monkeytype's [GitHub discussions](https://github.com/monkeytypegame/monkeytype/discussions) and a contributor will be happy to assist you.
